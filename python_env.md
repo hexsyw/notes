@@ -1,5 +1,8 @@
 # PYTHON ENV
 
+
+* docker: 基于 nvcr.io/nvidia/pytorch:25.03 制作
+    * cuda: 12.8
 * workdir: /data/hex
 
 ## verl-vllm011
@@ -7,12 +10,13 @@
 * reference: [verl0.6-cu128-torch2.8.0-fa2.7.4](https://github.com/volcengine/verl/blob/main/docker/verl0.6-cu128-torch2.8.0-fa2.7.4/Dockerfile.base)
 
 ```bash
-# 创建 python 环境
 $ uv venv --python 3.12 --seed /data/hex/.python/verl-vllm011
 
-# $ source /data/hex/.python/verl-vllm011/bin/activate
+$ source /data/hex/.python/verl-vllm011/bin/activate
 $ uv pip install uv
+```
 
+```bash
 $ uv pip install vllm
 
 $ uv pip install --no-cache-dir --no-build-isolation flash_attn==2.7.4.post1
@@ -23,19 +27,14 @@ $ uv pip install -v --disable-pip-version-check --no-cache-dir --no-build-isolat
 
 ## megatron-swift-torch27
 
-* docker: 基于 nvcr.io/nvidia/pytorch:25.03 制作
-    * cuda: 12.8
+```bash
+$ uv venv --python 3.12 --seed /data/hex/.python/megatron-swift-torch27
+
+$ source /data/hex/.python/megatron-swift-torch27/bin/activate
+$ uv pip install uv
+```
 
 ```bash
-# 创建 python 环境
-$ uv venv --python 3.12 --seed /data/hex/.python/megatron-swift-torch27
-# 使用环境
-# $ source /data/hex/.python/megatron-swift-torch27/bin/activate
-
-# 先在环境里装个 uv
-$ uv pip install uv
-
-# 安装 torch 2.7
 $ uv pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu128
 
 # 直接装 ms-swift
