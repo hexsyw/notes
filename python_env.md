@@ -1,11 +1,30 @@
 # PYTHON ENV
 
+* workdir: /data/hex
+
+## verl-vllm011
+
+* reference: [verl0.6-cu128-torch2.8.0-fa2.7.4](https://github.com/volcengine/verl/blob/main/docker/verl0.6-cu128-torch2.8.0-fa2.7.4/Dockerfile.base)
+
+```bash
+# 创建 python 环境
+$ uv venv --python 3.12 --seed /data/hex/.python/verl-vllm011
+
+# $ source /data/hex/.python/verl-vllm011/bin/activate
+$ uv pip install uv
+
+$ uv pip install -i https://artlab.alibaba-inc.com/1/pypi/simple vllm
+
+$ uv pip install -i https://artlab.alibaba-inc.com/1/pypi/simple --no-cache-dir --no-build-isolation flash_attn==2.7.4.post1
+
+# pip install -v --disable-pip-version-check --no-cache-dir --no-build-isolation --config-settings "--build-option=--cpp_ext" --config-settings "--build-option=--cuda_ext" git+https://github.com/NVIDIA/apex.git
+$ uv pip install -v --disable-pip-version-check --no-cache-dir --no-build-isolation -C="--build-option=--cpp_ext" -C="--build-option=--cuda_ext" git+https://github.com/NVIDIA/apex.git
+```
+
 ## megatron-swift-torch27
 
 * docker: 基于 nvcr.io/nvidia/pytorch:25.03 制作
     * cuda: 12.8
-* workdir: /data/hex
-
 
 ```bash
 # 创建 python 环境
