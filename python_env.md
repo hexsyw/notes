@@ -13,9 +13,9 @@ $ uv venv --python 3.12 --seed /data/hex/.python/verl-vllm011
 # $ source /data/hex/.python/verl-vllm011/bin/activate
 $ uv pip install uv
 
-$ uv pip install -i https://artlab.alibaba-inc.com/1/pypi/simple vllm
+$ uv pip install vllm
 
-$ uv pip install -i https://artlab.alibaba-inc.com/1/pypi/simple --no-cache-dir --no-build-isolation flash_attn==2.7.4.post1
+$ uv pip install --no-cache-dir --no-build-isolation flash_attn==2.7.4.post1
 
 # pip install -v --disable-pip-version-check --no-cache-dir --no-build-isolation --config-settings "--build-option=--cpp_ext" --config-settings "--build-option=--cuda_ext" git+https://github.com/NVIDIA/apex.git
 $ uv pip install -v --disable-pip-version-check --no-cache-dir --no-build-isolation -C="--build-option=--cpp_ext" -C="--build-option=--cuda_ext" git+https://github.com/NVIDIA/apex.git
